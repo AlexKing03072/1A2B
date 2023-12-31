@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  position: relative; /* 父元素設置為相對定位，讓子元素使用絕對定位 */
+}
+
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('numbers.jpg'); /* 替換為你的圖片URL */
+   /* 背景圖片填滿整個畫面 */
+   background-size: cover;
+    /* 設定背景層的透明度 */
+  opacity: 0.6; /* 這裡的值可以是 0 到 1 之間的數字，0 表示完全透明，1 表示完全不透明 */
+  z-index: 0; 
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* 其他內容的 z-index 設置為 1，使其處於背景圖之上 */
+}
+
+
+input[type="text"], button {
+  margin: 10px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+.guess-history {
+  text-align: left;
+}
+/*以下為顯示提示的觸發設定*/
+
+.ab-hints {
+  position: relative;
+}
+
+#ABHints {
+  display: none;
+  position: absolute;
+  top: 100%; /* 调整垂直位置 */
+  /*left: 44%;*/
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ab-hints #ABHints {
+  display: none;
+}
+
+.ab-hints button:hover + #ABHints {
+  display: block;
+}
+
+
+
+/* 媒體查詢 */
+@media screen and (max-width: 600px) {
+  input[type="text"], button {
+    margin: 5px;
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .input-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
